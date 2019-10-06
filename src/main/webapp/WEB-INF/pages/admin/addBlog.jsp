@@ -36,10 +36,10 @@
             <input required type="text" class="form-control" id="titleId" name="titleId" placeholder="Enter Title:"/>
         </div>
         <div class="form-group">
-            <label for="userByUserId.id">用户:</label>
-            <select class="form-control" id="userByUserId.id" name="userByUserId.id">
+            <label for="user.number">用户:</label>
+            <select class="form-control" id="user.number" name="user.number">
                 <c:forEach items="${userList}" var="user">
-                    <option value="${user.id}">${user.nickname}, ${user.firstName} </option>
+                    <option value="${user.number}">${user.number}, ${user.name} </option>
                 </c:forEach>
             </select>
         </div>
@@ -58,7 +58,8 @@
         <div><label >（四）劳动节，放假1天(5月1日)；</label></div>
         <div><label >（五）端午节，放假1天(农历端午当日)；</label></div>
         <div><label >（六）中秋节，放假1天(农历中秋当日)；</label></div>
-        <div><label >（七）国庆节，放假3天(10月1日、2日、3日)。</label></div>        <div class="form-group">
+        <div><label >（七）国庆节，放假3天(10月1日、2日、3日)。</label></div>
+        <div class="form-group">
             <label for="type">加班类型(只有以上7条才能填报节假日加班):</label>
             <select class="form-control" id="type" name="type">
                 <option value="日常">日常</option>

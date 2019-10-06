@@ -25,12 +25,12 @@
     <hr/>
     <form:form action="/admin/users/addP" method="post" commandName="user" role="form">
         <div class="form-group">
-            <label for="firstName">工号:</label>
-            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Enter Nickname:"/>
+            <label for="name">工号:</label>
+            <input type="text" class="form-control" id="number" name="number" placeholder="Enter number:"/>
         </div>
         <div class="form-group">
-            <label for="firstName">姓名:</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter FirstName:"/>
+            <label for="name">姓名:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name:"/>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-sm btn-success">提交</button>

@@ -1,6 +1,6 @@
-package com.gaussic.repository;
+package com.unicloud.repository;
 
-import com.gaussic.model.UserEntity;
+import com.unicloud.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,7 +18,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     @Transactional  // 说明该方法是事务性操作
     // 定义查询
     // @Param注解用于提取参数
-    @Query("update UserEntity us set us.nickname=:qNickname, us.firstName=:qFirstName where us.id=:qId")
-    public void updateUser(@Param("qNickname") String nickname, @Param("qFirstName") String firstName,
-                            @Param("qId") Integer id);
+    @Query("update UserEntity us set us.number=:qnumber, us.name=:qname where us.id=:qId")
+    public void updateUser(@Param("qnumber") String number, @Param("qname") String name);
 }

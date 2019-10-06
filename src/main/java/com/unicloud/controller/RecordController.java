@@ -1,13 +1,11 @@
-package com.gaussic.controller;
+package com.unicloud.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.gaussic.model.BlogEntity;
-import com.gaussic.model.UserEntity;
-import com.gaussic.repository.BlogRepository;
-import com.gaussic.repository.UserRepository;
-import org.hibernate.annotations.Where;
+import com.unicloud.model.BlogEntity;
+import com.unicloud.model.UserEntity;
+import com.unicloud.repository.BlogRepository;
+import com.unicloud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,7 +20,7 @@ import java.util.List;
  * Created by dzkan on 2016/3/18.
  */
 @Controller
-public class BlogController {
+public class RecordController {
 
     @Autowired
     BlogRepository blogRepository;
@@ -34,7 +32,7 @@ public class BlogController {
 
     @RequestMapping(value = "/admin/blogs", method = RequestMethod.GET)
     public String showBlogs(ModelMap modelMap) {
-        Sort sort=new Sort(Sort.Direction.ASC,"userByUserId");
+        Sort sort=new Sort(Sort.Direction.ASC,"user");
         List<BlogEntity> blogList = blogRepository.findAll(sort);
         modelMap.addAttribute("blogList", blogList);
         return "admin/blogs";
@@ -56,7 +54,7 @@ public class BlogController {
         // 打印博客标题
         System.out.println(blogEntity.getTitle());
         // 打印博客作者
-        System.out.println(blogEntity.getUserByUserId().getNickname());
+        System.out.println(blogEntity.getuser().getnumber());
         // 存库
         blogRepository.saveAndFlush(blogEntity);
         // 重定向地址
@@ -87,10 +85,9 @@ public class BlogController {
     public String updateBlogP(@ModelAttribute("blogP") BlogEntity blogEntity) {
         // 更新博客信息
 //        System.out.println(blogEntity.getTitle());
-//        blogRepository.updateBlog(blogEntity.getTitle(), blogEntity.getUserByUserId().getId(),
-//                blogEntity.getContent(), blogEntity.getPubDate(), blogEntity.getId(),blogEntity.getCosttime(),blogEntity.getType());
-//        blogRepository.flush();
-        blogRepository.save(blogEntity);
+        blogRepository.updateBlog(blogEntity.getTitle(),blogEntity.getTitleId(),blogEntity.getContent(), blogEntity.getPubDate(), blogEntity.getId(),blogEntity.getCosttime(),blogEntity.getType());
+        blogRepository.flush();
+//        blogRepository.save(blogEntity);
         return "redirect:/";
     }
 

@@ -35,14 +35,14 @@
             <input type="text" class="form-control" id="titleId" name="titleId" placeholder="Enter Title:" value="${blog.titleId}"/>
         </div>
         <div class="form-group">
-            <label for="userByUserId.id">用户:</label>
-            <select class="form-control" id="userByUserId.id" name="userByUserId.id">
+            <label for="user.number">用户:</label>
+            <select  class="form-control" disabled readonly id="user.number" name="user.number">
                 <c:forEach items="${userList}" var="user">
-                    <c:if test="${user.id==blog.userByUserId.id}">
-                        <option value="${user.id}" selected="selected">${user.nickname}, ${user.firstName} </option>
+                    <c:if test="${user.number==blog.user.number}">
+                        <option value="${user.number}" selected="selected">${user.number}, ${user.name} </option>
                     </c:if>
-                    <c:if test="${user.id!=blog.userByUserId.id}">
-                        <option value="${user.id}">${user.nickname}, ${user.firstName} </option>
+                    <c:if test="${user.number!=blog.user.number}">
+                        <option value="${user.number}">${user.number}, ${user.name} </option>
                     </c:if>
                 </c:forEach>
             </select>

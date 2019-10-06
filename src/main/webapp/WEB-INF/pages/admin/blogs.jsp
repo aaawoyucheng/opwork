@@ -27,6 +27,7 @@
 
     <h3>
         <a href="/admin/blogs/add" type="button" class="btn btn-primary btn-sm">添加记录</a>
+        <a href="/excel" type="button" class="btn btn-primary btn-sm">EXCEL下载</a>
 <%--        <a href="/admin/users/add" type="button" class="btn btn-primary btn-sm">添加用户</a>--%>
     </h3>
 
@@ -61,7 +62,7 @@
                     <td>${blog.costtime}</td>
                     <td>${blog.type}</td>
                     <td>${blog.content}</td>
-                    <td>${blog.userByUserId.nickname}, ${blog.userByUserId.firstName} </td>
+                    <td>${blog.user.number}, ${blog.user.name} </td>
                     <td>
 <%--                        <a href="/admin/blogs/show/${blog.id}" type="button" class="btn btn-sm btn-success">详情</a>--%>
                         <a href="/admin/blogs/update/${blog.id}" type="button" class="btn btn-sm btn-warning">修改</a>

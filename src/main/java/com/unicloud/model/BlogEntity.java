@@ -1,19 +1,16 @@
-package com.gaussic.model;
+package com.unicloud.model;
 
 import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.Where;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by dzkan on 2016/3/8.
  */
 @Entity
 @Where(clause = "deleted=0")
-@Table(name = "blog", schema = "op_work", catalog = "")
-@Proxy(lazy = false)
+@Table(name = "record", catalog = "")
 public class BlogEntity {
     @Override
     public String toString() {
@@ -25,7 +22,7 @@ public class BlogEntity {
                 ", costtime=" + costtime +
                 ", type='" + type + '\'' +
                 ", deleted=" + deleted +
-                ", userByUserId=" + userByUserId +
+                ", user=" + user +
                 ", titleId='" + titleId + '\'' +
                 '}';
     }
@@ -40,7 +37,7 @@ public class BlogEntity {
     @Column(name = "deleted", nullable = false, length = 100)
     private int deleted;
 
-    private UserEntity userByUserId;
+    private UserEntity user;
     private String titleId;
 
     @Id
@@ -100,6 +97,7 @@ public class BlogEntity {
     public void setPubDate(String pubDate) {
         this.pubDate = pubDate;
     }
+
     @Basic
     @Column(name = "costtime", nullable = true)
     public float getCosttime() {
@@ -109,6 +107,7 @@ public class BlogEntity {
     public void setCosttime(float costtime) {
         this.costtime = costtime;
     }
+
     @Basic
     @Column(name = "type", nullable = false)
     public String getType() {
@@ -143,13 +142,13 @@ public class BlogEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    public UserEntity getUserByUserId() {
-        return userByUserId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_number", referencedColumnName = "number", nullable = false)
+    public UserEntity getuser() {
+        return user;
     }
 
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
+    public void setuser(UserEntity user) {
+        this.user = user;
     }
 }

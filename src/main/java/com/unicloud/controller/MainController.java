@@ -1,7 +1,7 @@
-package com.gaussic.controller;
+package com.unicloud.controller;
 
-import com.gaussic.model.UserEntity;
-import com.gaussic.repository.UserRepository;
+import com.unicloud.model.UserEntity;
+import com.unicloud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -54,7 +54,7 @@ public class MainController {
 
         // 数据库中添加一个用户，该步暂时不会刷新缓存
         //userRepository.save(userEntity);
-        System.out.println(userEntity.getFirstName());
+        System.out.println(userEntity.getname());
 
         // 数据库中添加一个用户，并立即刷新缓存
         userRepository.saveAndFlush(userEntity);
@@ -94,8 +94,7 @@ public class MainController {
     public String updateUserPost(@ModelAttribute("userP") UserEntity user) {
 
         // 更新用户信息
-        userRepository.updateUser(user.getNickname(), user.getFirstName(),
-                 user.getId());
+        userRepository.updateUser(user.getnumber(), user.getname());
         userRepository.flush(); // 刷新缓冲区
         return "redirect:/admin/users";
     }

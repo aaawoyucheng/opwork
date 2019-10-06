@@ -26,15 +26,15 @@
     <table class="table table-bordered table-striped">
         <tr>
             <th>ID</th>
-            <td>${user.id}</td>
+            <td>${user.number}</td>
         </tr>
         <tr>
-            <th>Nickname</th>
-            <td>${user.nickname}</td>
+            <th>number</th>
+            <td>${user.number}</td>
         </tr>
         <tr>
             <th>First Name</th>
-            <td>${user.firstName}</td>
+            <td>${user.name}</td>
         </tr>
         <tr>
             <th>Last Name</th>
